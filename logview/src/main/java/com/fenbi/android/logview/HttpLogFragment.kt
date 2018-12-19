@@ -15,7 +15,6 @@ import com.airbnb.mvrx.fragmentViewModel
 import com.airbnb.mvrx.withState
 import kotlinx.android.synthetic.main.logview_fragment_http_log.*
 import okhttp3.logging.HttpLoggingInterceptor
-import org.jetbrains.anko.backgroundColor
 
 /**
  * @author zheng on 12/18/18
@@ -44,7 +43,7 @@ class HttpLogFragment : BaseMvRxFragment() {
         httpText.setOnClickListener {
             viewModel.toggleShow()
         }
-        recyclerView.backgroundColor = 0xaa000000.toInt()
+        recyclerView.setBackgroundColor(0xaa000000.toInt())
         recyclerView.setController(epoxyController)
         (recyclerView.layoutManager as? LinearLayoutManager)?.stackFromEnd = true
         levelSpinner.adapter = ArrayAdapter(requireContext(),

@@ -31,7 +31,6 @@ dependencies {
     implementation "com.airbnb.android:epoxy:$epoxy_version"
     kapt "com.airbnb.android:epoxy-processor:$epoxy_version"
     implementation 'androidx.core:core-ktx:0.3'
-    implementation "org.jetbrains.anko:anko:0.10.8"
     implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
     implementation "com.squareup.okhttp3:okhttp-urlconnection:$okhttp_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"

@@ -1,15 +1,15 @@
 package com.fenbi.android.logview
 
 import android.content.Context
+import android.preference.PreferenceManager
 import android.support.v4.app.FragmentActivity
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.widget.FrameLayout
 import androidx.core.content.edit
 import okhttp3.logging.HttpLoggingInterceptor.Level
-import org.jetbrains.anko.defaultSharedPreferences
-import org.jetbrains.anko.matchParent
 
 /**
  * @author zheng on 12/18/18
@@ -22,7 +22,7 @@ class LogView(context: Context) : FrameLayout(context) {
     }
 
     fun install(activity: FragmentActivity) {
-        activity.addContentView(this, ViewGroup.LayoutParams(matchParent, matchParent))
+        activity.addContentView(this, ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT))
         val fragment = activity.supportFragmentManager.findFragmentByTag("http") as? HttpLogFragment
         if (fragment == null) {
             val httpLogFragment = HttpLogFragment()
@@ -39,10 +39,11 @@ class LogView(context: Context) : FrameLayout(context) {
             HttpLog.logLevelPersist = object : LogLevelPersist {
                 override var level: Level
                     get() =
-                        activity.defaultSharedPreferences.getString("level", null)
-                            ?.let { Level.valueOf(it) } ?: Level.BASIC
+                        PreferenceManager.getDefaultSharedPreferences(activity)
+                                .getString("level", null)
+                                ?.let { Level.valueOf(it) } ?: Level.BASIC
                     set(value) {
-                        activity.defaultSharedPreferences.edit {
+                        PreferenceManager.getDefaultSharedPreferences(activity).edit {
                             putString("level", value.name)
                         }
                     }

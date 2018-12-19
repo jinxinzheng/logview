@@ -4,7 +4,6 @@ import android.content.Context
 import android.widget.TextView
 import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
-import org.jetbrains.anko.textColor
 
 /**
  * @author zheng on 12/18/18
@@ -20,7 +19,7 @@ class LogItem(context: Context) : TextView(context) {
     @ModelProp
     fun setLogText(text: CharSequence?) {
         this.text = text
-        textColor = if (text != null && (text.startsWith("<--") || text.startsWith("-->"))) {
+        setTextColor(if (text != null && (text.startsWith("<--") || text.startsWith("-->"))) {
             if (text.startsWith("<--") && !text.startsWith("<-- 200") && !text.startsWith("<-- END")) {
                 0xffee5555.toInt()
             } else {
@@ -28,6 +27,6 @@ class LogItem(context: Context) : TextView(context) {
             }
         } else {
             0xffffffff.toInt()
-        }
+        })
     }
 }
