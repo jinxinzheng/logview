@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.airbnb.epoxy.EpoxyRecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/httpText"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_gravity="end|top"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:background="@drawable/logview_shape_bg_blue_btn"
+        android:text="http"
+        android:textColor="@color/logview_text_001"/>
+
+    <Spinner
+        android:id="@+id/levelSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/logview_bg_001"/>
+
+    <TextView
+        android:id="@+id/clearText"
+        android:layout_width="55dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="top|center"
+        android:background="@drawable/logview_shape_bg_blue_btn"
+        android:gravity="center"
+        android:text="clear"
+        android:textColor="@color/logview_text_001"/>
+
+</FrameLayout>

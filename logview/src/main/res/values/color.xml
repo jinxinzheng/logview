@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="logview_text_001">#ffffff</color>
+
+    <color name="logview_bg_001">#ffffff</color>
+    <color name="logview_bg_002">#44a6ff</color>
+
+</resources>
