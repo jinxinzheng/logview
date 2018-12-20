@@ -1,7 +1,6 @@
 # LogView
 
-A trivial tool that displays logs on an activity. You can virtually add any
-log to it. Now it only supports OkHttpClient logging by the HttpLoggingInterceptor.
+A trivial tool that displays logs on an activity.
 
 # How to use
 
@@ -10,12 +9,15 @@ In your BaseActivity (required to be a FragmentActivity),
 ```kotlin
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (Config.isDebug) {
+        if (BuildConfig.DEBUG) {
             LogView.install(this)
         }
     }
 ```
 
+You can add any logs using `LogView.addLog()`.
+
+Currently it supports OkHttpClient logging by the HttpLoggingInterceptor.
 Add the logging interceptor to your OkHttpClient.Builder
 
 ```kotlin
@@ -23,13 +25,11 @@ Add the logging interceptor to your OkHttpClient.Builder
 ```
 
 Or, if you can't access the builder, but only have the OkHttpClient, we can also
-set it up for you (via reflection).
+set it up for you (via reflection),
 
 ```kotlin
     okHttpClient.addLogViewInterceptor()
 ```
-
-You can add any logs using `LogView.addLog()`.
 
 Thanks to [MvRx](https://github.com/airbnb/MvRx) and
 [Epoxy](https://github.com/airbnb/epoxy), for that they make life so much easier.

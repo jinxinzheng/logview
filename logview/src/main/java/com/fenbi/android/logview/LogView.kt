@@ -3,7 +3,6 @@ package com.fenbi.android.logview
 import android.content.Context
 import android.preference.PreferenceManager
 import android.support.v4.app.FragmentActivity
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
@@ -35,7 +34,6 @@ class LogView(context: Context) : FrameLayout(context) {
     companion object {
 
         fun install(activity: FragmentActivity) {
-            Log.w("LogView", "install")
             HttpLog.logLevelPersist = object : LogLevelPersist {
                 override var level: Level
                     get() =
@@ -49,6 +47,7 @@ class LogView(context: Context) : FrameLayout(context) {
                     }
             }
             LogView(activity).install(activity)
+            addLog("LogView installed")
         }
 
         fun addLog(text: CharSequence) {
